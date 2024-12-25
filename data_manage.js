@@ -200,12 +200,12 @@ const moreThan2Hobbies = (records) => {
 
 const commonPetType = (records) => {
   const petsArray = records.flatMap(({ pets }) => pets);
-  const petsNames = petsArray.flatMap(({ breed }) => breed);
-  const uniquepets = [...new Set(petsNames)];
+  const petTypes = petsArray.flatMap(({ breed }) => breed);
+  const uniquepets = [...new Set(petTypes)];
 
-  const occurancesDetails = uniquepets.map((pets) => {
-    const occurances = petsNames.filter((x) => x === pets).length;
-    return { times: occurances, types: pets };
+  const occurancesDetails = uniquepets.map((petType) => {
+    const occurances = petTypes.filter((type) => type === petType).length;
+    return { times: occurances, types: petType };
   });
 
   const occurrenceList = occurancesDetails.map(({ times }) => times);
