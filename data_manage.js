@@ -231,7 +231,7 @@ const unEmployedPeoplePets = (record) => {
 };
 
 const peopleLiveInCityStartsWithB = (records) => {
-  return records.filter(({ city }) => city.at(0) === "B").length;
+  return records.filter(({ city }) => city.startsWith("B")).length;
 };
 
 const peopleWithoutPets = (record) => {
