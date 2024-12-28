@@ -148,7 +148,7 @@ groupTest(
     test("Total pets of Unemployed people", () =>
       areEqual(2, fn.unEmployedPeoplePets(details)));
 
-    test("Total pets of Unemployed people", () =>
+    test("Total pets of Rahul(employed)", () =>
       areEqual(0, fn.unEmployedPeoplePets([Rahul])));
 
     test("Check for other data", () =>
@@ -161,3 +161,56 @@ groupTest(
       ));
   }
 );
+
+groupTest(
+  "8. What is the average age of the individuals mentioned in the passage?",
+  () => {
+    test("Avg of all people ", () => areEqual(33.25, fn.averageAge(details))),
+      test("Avg of 2 person", () =>
+        areEqual(
+          17.5,
+          fn.averageAge([
+            { name: "Beauti", age: 19 },
+            { name: "Beauti", age: 16 },
+          ])
+        ));
+  }
+);
+
+groupTest(
+  "9. How many individuals have studied computer science, and how many of them have pets?",
+  () => {
+    test("check for All", () => areEqual(2, fn.studiedCsAndHavepets(details)));
+    test("check for Only one", () =>
+      areEqual(1, fn.studiedCsAndHavepets([Rahul])));
+    test("check for Only one", () =>
+      areEqual(
+        2,
+        fn.studiedCsAndHavepets([
+          {
+            name: "syam",
+            education: "computer science",
+            pets: [{ pet1: true }],
+          },
+          {
+            education: "computer science",
+            pets: [{ pet1: true }, { pet1: true }],
+          },
+          { pets: [{ pet1: true }, { pet1: true }], education: "Geography" },
+        ])
+      ));
+  }
+);
+
+groupTest("10. How many individuals own more than one pets?", () => {
+  test("Test for all people ", () =>
+    areEqual(1, fn.personWithMoreThan2pets(details)));
+  test("Test ", () =>
+    areEqual(
+      1,
+      fn.personWithMoreThan2pets([
+        { name: "Beatui", pets: [{ pet1: "kitty" }, { pet2: "tommy" }] },
+        { name: "Sweety", pets: [{ pet1: "kitty" }] },
+      ])
+    ));
+});
