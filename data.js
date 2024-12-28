@@ -76,7 +76,7 @@ const Kavya = {
   name: "Kavya",
   age: 28,
   occupation: "dancer",
-  city: "chennai",
+  city: "Chennai",
   hobbies: [
     "prefers modern fantasy novels",
     "binge-watching sci-fi shows in downtime",

@@ -214,3 +214,54 @@ groupTest("10. How many individuals own more than one pets?", () => {
       ])
     ));
 });
+
+groupTest(
+  "11. Which pets are associated with specific favorite activities?",
+  () => {
+    test("test for All", () =>
+      areEqual(
+        [
+          "Max",
+          ["loves playing in the park"],
+          "Kiwi",
+          ["mimics Ananya's voice"],
+          "Bella",
+          ["love lounging in the sun"],
+          "leo",
+          ["love lounging in the sun"],
+          "Snowy",
+          ["enjoys hopping around her backyard", "nibbling on carrots"],
+        ],
+        fn.petsAndFavActivities(details)
+      )),
+      test("test for All", () =>
+        areEqual(
+          ["jacky", ["singing", "whitelling"]],
+
+          fn.petsAndFavActivities([
+            {
+              pets: [
+                { name: "jacky", favActivities: ["singing", "whitelling"] },
+              ],
+            },
+          ])
+        ));
+  }
+);
+groupTest(
+  "12. What are the names of all animals that belong to people who live in Bangalore or Chennai?.",
+
+  () => {
+    test("Try for all the details", () =>
+      areEqual(["Kiwi", "Snowy"], fn.petsOfBengloreAndChennai(details)));
+
+    test("Try for all ohters", () =>
+      areEqual(
+        ["Kitty", "Tommy", "Tom"],
+        fn.petsOfBengloreAndChennai([
+          { city: "Bangalore", pets: [{ name: "Kitty" }, { name: "Tommy" }] },
+          { city: "Chennai", pets: [{ name: "Tom" }] },
+        ])
+      ));
+  }
+);

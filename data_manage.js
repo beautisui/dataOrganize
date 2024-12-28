@@ -68,7 +68,7 @@ export const petsAndFavActivities = function (records) {
 };
 
 export const petsOfBengloreAndChennai = function (records) {
-  const place = ["Bangalore", "chennai"];
+  const place = ["Bangalore", "Chennai"];
   const citizenOfBengloreChennai = records.filter(
     ({ city }) => city.includes(place[0]) || city.includes(place[1])
   );
