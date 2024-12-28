@@ -128,5 +128,36 @@ groupTest(
         },
         fn.totalHobbies(details)
       ));
+
+    test("Change Data and Check hobbie:", () =>
+      areEqual(
+        { totalHobbies: 2, hobbie: ["Singing", "Writting Poem"] },
+        fn.totalHobbies([
+          {
+            ...Ananya,
+            hobbies: ["Singing", "Writting Poem"],
+          },
+        ])
+      ));
+  }
+);
+
+groupTest(
+  "7. How many pets belong to people who are currently unemployed?.",
+  () => {
+    test("Total pets of Unemployed people", () =>
+      areEqual(2, fn.unEmployedPeoplePets(details)));
+
+    test("Total pets of Unemployed people", () =>
+      areEqual(0, fn.unEmployedPeoplePets([Rahul])));
+
+    test("Check for other data", () =>
+      areEqual(
+        2,
+        fn.unEmployedPeoplePets([
+          { employed: false, pets: [{ pet1: "Kitty" }, { pet2: "Tommy" }] },
+          { employed: true, pets: [{ pet1: "Kitty" }, { pet2: "Tommy" }] },
+        ])
+      ));
   }
 );

@@ -15,6 +15,7 @@ const isEqual = (a, b) => a === b;
 
 export const areEqual = (a, b) => {
   console.log("Expected: ", a, "Actual", b);
+
   if (!Array.isArray(a)) return isEqual(a, b);
 
   if (a.length !== b.length) return false;

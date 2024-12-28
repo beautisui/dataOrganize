@@ -118,7 +118,7 @@ export const youngestPet = (records) => {
 export const unEmployedPeoplePets = (record) => {
   const unemployedPeopleDetails = record.filter(({ employed }) => !employed);
 
-  return unemployedPeopleDetails.map(({ pets }) => pets).length;
+  return unemployedPeopleDetails.reduce((sum, a) => sum + a.pets.length, 0);
 };
 
 export const peopleLiveInCityStartsWithB = (records) => {
