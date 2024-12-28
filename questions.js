@@ -1,5 +1,5 @@
 import * as fn from "./data_manage.js";
-import { getQuestionAns } from "./ans.js";
+import { getQuestionAns } from "./answers.js";
 
 getQuestionAns(
   "1. How many individuals are currently employed?",

@@ -265,3 +265,42 @@ groupTest(
       ));
   }
 );
+
+groupTest(
+  "13. How many vaccinated pets belong to people who do not own a car?",
+  () => {
+    test("Test for All", () =>
+      areEqual(4, fn.vaccinatedPetsOfCarLessOwner(details)));
+
+    test("Test for All", () =>
+      areEqual(
+        1,
+        fn.vaccinatedPetsOfCarLessOwner([
+          {
+            ownsCar: true,
+            pets: [
+              { vaccination: true },
+              {
+                ownsCar: false,
+                pets: [{ vaccination: false }, { vaccination: true }],
+              },
+            ],
+          },
+          { ownsCar: false, pets: [{ vaccination: true }] },
+        ])
+      ));
+  }
+);
+
+groupTest("14. What is the most common type of pets among the group?.", () => {
+  test("test For All", () => areEqual("cat", fn.commonPetType(details))),
+    test("test for other pets", () =>
+      areEqual(
+        "cow",
+        fn.commonPetType([
+          { pets: [{ breed: "bird" }, { breed: "cow" }] },
+          { pets: [{ breed: "cow" }] },
+          { pets: [{ breed: "cow" }] },
+        ])
+      ));
+});
